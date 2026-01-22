@@ -6,13 +6,14 @@ import helmet from 'helmet';
 import express, { Request, Response } from 'express';
 import { globalErrorHandler, notFound, rateLimiter } from './middlewares';
 import { requestLogger } from './logger';
-import { config } from './config';
 import router from './app/routes';
+import { config } from './config/config';
+import { corsOptions } from './config/cors.config';
 
 const app = express();
 
 // Middleware setup
-app.use(cors()); // CORS
+app.use(cors(corsOptions)); // CORS
 app.use(cookieParser()); // Cookie parsing
 app.use(compression()); // Compress responses
 app.use(requestIp.mw()); // Extract IP address

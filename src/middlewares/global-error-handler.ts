@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
-import { config } from '@/config';
+import { config } from '@/config/config';
 import {
   ApiError,
   handleCastError,

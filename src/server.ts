@@ -1,9 +1,10 @@
 import mongoose from 'mongoose';
 import colors from 'colors';
 import { Server } from 'http';
-import { config } from './config';
 import { appLogger } from './logger';
 import app from './app';
+import seedAdmin from './seeds/admin.seed';
+import { config } from './config/config';
 
 let server: Server;
 
@@ -12,6 +13,8 @@ let server: Server;
     const connectionInstance = await mongoose.connect(
       `${config.database.url}/${config.database.name}`,
     );
+
+    await seedAdmin();
 
     appLogger.info(
       colors.green.bold(

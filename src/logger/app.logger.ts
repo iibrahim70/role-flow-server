@@ -4,7 +4,7 @@ import winston from 'winston';
 import DailyRotateFile from 'winston-daily-rotate-file';
 import stripAnsi from 'strip-ansi';
 import util from 'util';
-import { config } from '@/config';
+import { config } from '@/config/config';
 
 // Define log levels with severity
 const levels = {
